@@ -1,6 +1,7 @@
 import { Bot, webhookCallback } from 'grammy'
 
-const bot = new Bot(process.env['BOT_TOKEN'])
+const botToken = process.env['BOT_TOKEN']
+const bot = new Bot(botToken ? botToken : '')
 
 // attach all middleware
 bot.on('message', async ctx => {
