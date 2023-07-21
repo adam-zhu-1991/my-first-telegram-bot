@@ -1,8 +1,5 @@
-import { Bot, webhookCallback } from "grammy";
+import { Bot } from 'grammy'
 
-const token = process.env.BOT_TOKEN;
-if (!token) throw new Error("BOT_TOKEN is unset");
+const bot = new Bot(process.env['BOT_TOKEN']) // <-- Set your token in the vercel environment variable
 
-const bot = new Bot(token);
-
-export default webhookCallback(bot, "http");
+bot.api.setWebhook(process.env['WEBHOOK'])
